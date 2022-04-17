@@ -9,6 +9,8 @@ const postRoute = require('./routes/posts');
 const categoryRoute = require('./routes/categories');
 const path = require('path');
 
+const PORT = process.env.PORT || 5000;
+
 dotenv.config();
 app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, '/images')));
@@ -37,6 +39,6 @@ app.use("/api/users", usersRoute);
 app.use("/api/post", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.listen(3000, () => {
-  console.log('listening on port 3000')
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 })
